@@ -1,0 +1,10 @@
+sudo: true
+
+install:
+  - curl -sLo - http://j.mp/install-travis-docker | sh -xe
+
+script:
+  - ./run 'docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY'
+  - ./run 'docker build -t test . && docker run test'
+  - ./run 'docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .'
+  - ./run 'docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"'
