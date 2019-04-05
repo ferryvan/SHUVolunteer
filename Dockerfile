@@ -1,6 +1,7 @@
 FROM golang:1.12-alpine as builder
-RUN apk add git
-RUN apk add --no-cache tesseract
+RUN /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+RUN brew install tesseract
+RUN brew install git
 ENV GO111MODULE=on
 COPY . /go/src/SHUVolunteerBE
 WORKDIR /go/src/SHUVolunteerBE
