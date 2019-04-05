@@ -1,7 +1,7 @@
 FROM golang:1.12 as builder
 RUN apt install git -y
-RUN apt install tesseract-ocr-dev
-RUN apt install libleptonica-dev
+RUN add-apt-repository ppa:alex-p/tesseract-ocr && apt-get update 
+RUN apt install tesseract-ocr
 ENV GO111MODULE=on
 COPY . /go/src/SHUVolunteerBE
 WORKDIR /go/src/SHUVolunteerBE
