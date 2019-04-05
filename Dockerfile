@@ -1,6 +1,5 @@
 FROM jitesoft/tesseract-ocr as builder
-RUN apt install git -y
-RUN apt install golang -y
+RUN apt-get update && apt install git -y && apt install golang -y
 ENV GO111MODULE=on
 COPY . /go/src/SHUVolunteerBE
 WORKDIR /go/src/SHUVolunteerBE
