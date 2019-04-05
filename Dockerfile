@@ -1,7 +1,6 @@
 FROM golang:1.12 as builder
 RUN apt-get install git -y
-RUN apt-cache search tesseract | grep dev
-RUN apt-get install libtesseract-dev
+RUN go get github.com/otiai10/gosseract
 ENV GO111MODULE=on
 COPY . /go/src/SHUVolunteerBE
 WORKDIR /go/src/SHUVolunteerBE
