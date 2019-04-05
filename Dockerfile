@@ -1,5 +1,6 @@
 FROM golang:1.12-alpine as builder
 RUN apk add git
+RUN apk add gcc
 ENV GO111MODULE=on
 COPY . /go/src/SHUVolunteerBE
 WORKDIR /go/src/SHUVolunteerBE
