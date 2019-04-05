@@ -9,4 +9,4 @@ RUN go get && go build -o SHUVolunteerBE .
 FROM alpine
 COPY --from=builder /go/src/SHUVolunteerBEy/SHUVolunteerBE .
 CMD ["./SHUVolunteerBE"]
-EXPOSE 8086
+EXPOSE 8000
