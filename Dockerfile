@@ -1,6 +1,7 @@
 FROM golang:1.12 as builder
 RUN apt-get install git -y
-RUN go get github.com/otiai10/gosseract
+RUN apt install libleptonica-dev
+RUN apt install libtesseract-dev
 ENV GO111MODULE=on
 COPY . /go/src/SHUVolunteerBE
 WORKDIR /go/src/SHUVolunteerBE
