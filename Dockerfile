@@ -1,6 +1,6 @@
 FROM golang:1.12-alpine as builder
 RUN apk add git
-RUN apk add gcc
+RUN apk add tesseract
 ENV GO111MODULE=on
 COPY . /go/src/SHUVolunteerBE
 WORKDIR /go/src/SHUVolunteerBE
